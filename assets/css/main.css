@@ -1514,6 +1514,27 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
+/* From Uiverse.io by McHaXYT */ 
+.button {
+  padding: 2px 15px;
+  border: none;
+  outline: none;
+  background-color: #151515;
+  color: #eee;
+  border-radius: 70px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+}
+
+.button:hover {
+  transform: translateY(-6px);
+}
+
+.button-span {
+  color: #aaa;
+}
+
 /*--------------------------------------------------------------
 # Portfolio Details Section
 --------------------------------------------------------------*/
