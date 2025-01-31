@@ -97,6 +97,39 @@
 
         <button class="ctabutton">
           <span class="ctabutton-content">Talk to us</span>
+        <script>
+          function openContactForm() {
+            const formHtml = `
+              <div id="contactFormOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+                <div style="background: white; padding: 20px; border-radius: 10px; width: 300px;">
+                  <h3>Contact Us</h3>
+                  <form action="mailto:contact@smartbhujal.com" method="post" enctype="text/plain">
+                    <div style="margin-bottom: 10px;">
+                      <label for="name">Name:</label>
+                      <input type="text" id="name" name="name" required style="width: 100%; padding: 5px;">
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                      <label for="message">Message:</label>
+                      <textarea id="message" name="message" required style="width: 100%; padding: 5px;"></textarea>
+                    </div>
+                    <div style="text-align: right;">
+                      <button type="button" onclick="closeContactForm()" style="margin-right: 10px;">Cancel</button>
+                      <button type="submit">Send</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', formHtml);
+          }
+
+          function closeContactForm() {
+            const formOverlay = document.getElementById('contactFormOverlay');
+            if (formOverlay) {
+              formOverlay.remove();
+            }
+          }
+        </script>
         </button>
         </div>
       </div>
