@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("modal");
-    const talkToUsBtn = document.getElementById("talkToUsBtn");
+    const talkToUsBtns = document.querySelectorAll("#talkToUsBtn");
     const closeBtn = document.querySelector(".close-btn");
-    const submitBtn = document.querySelector(".submit-btn");
+    const submitBtns = document.querySelectorAll(".submit-btn");
 
-    // Open Modal
-    talkToUsBtn.addEventListener("click", function () {
-        modal.style.display = "flex";
+    // Open Modal for each "Talk to Us" button
+    talkToUsBtns.forEach(btn => {
+        btn.addEventListener("click", function () {
+            modal.style.display = "flex";
+        });
     });
 
     // Close Modal
@@ -41,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Attach Submit Function to Button
-    submitBtn.addEventListener("click", submitForm);
+    // Attach Submit Function to All Submit Buttons
+    submitBtns.forEach(btn => {
+        btn.addEventListener("click", submitForm);
+    });
 });
