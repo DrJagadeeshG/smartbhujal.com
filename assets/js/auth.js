@@ -1,20 +1,16 @@
-// Ensure Supabase SDK is available globally
-let supabase;
-
-// Wait for the document to fully load before executing the script
+// Wait for the Supabase SDK to load before initializing
 document.addEventListener("DOMContentLoaded", function () {
+    if (typeof supabase === "undefined") {
+        console.error("🚨 Supabase SDK is not loaded. Check script order in gwflowai.html!");
+        return;
+    }
+
     // Define Supabase constants
     const SUPABASE_URL = "https://YOUR_PROJECT_ID.supabase.co";
     const SUPABASE_ANON_KEY = "YOUR_ANON_KEY";
 
-    // Ensure Supabase credentials exist
-    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
-        console.error("🚨 Supabase credentials are missing!");
-        return;
-    }
-
-    // Initialize Supabase Client (Global Scope)
-    supabase = window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // Initialize Supabase Client
+    window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     console.log("✅ Supabase Initialized");
 
     // Function to Open Supabase Auth Window
@@ -23,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
             const { data, error } = await supabase.auth.signInWithOAuth({
-                provider: "google", // Use "github" for GitHub login
+                provider: "google", // Change to "github" if needed
                 options: {
                     redirectTo: "https://www.smartbhujal.com/gwflowai.html"
                 }
