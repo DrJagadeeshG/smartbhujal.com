@@ -1,8 +1,11 @@
+// Ensure Supabase SDK is available globally
+let supabase;
+
 // Wait for the document to fully load before executing the script
 document.addEventListener("DOMContentLoaded", function () {
     // Define Supabase constants
-    const SUPABASE_URL = "{{ SUPABASE_URL }}";
-    const SUPABASE_ANON_KEY = "{{ SUPABASE_ANON_KEY }}";
+    const SUPABASE_URL = "https://YOUR_PROJECT_ID.supabase.co";
+    const SUPABASE_ANON_KEY = "YOUR_ANON_KEY";
 
     // Ensure Supabase credentials exist
     if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
@@ -10,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // Initialize Supabase Client
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // Initialize Supabase Client (Global Scope)
+    supabase = window.supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     console.log("✅ Supabase Initialized");
 
     // Function to Open Supabase Auth Window
