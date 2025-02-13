@@ -24,6 +24,11 @@ jobs:
           echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" >> $GITHUB_ENV
           echo "SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}" >> $GITHUB_ENV
 
+      - name: Replace Supabase Variables in HTML
+        run: |
+          sed -i 's|{{ SUPABASE_URL }}|'"${SUPABASE_URL}"'|g' gwflowai.html
+          sed -i 's|{{ SUPABASE_ANON_KEY }}|'"${SUPABASE_ANON_KEY}"'|g' gwflowai.html
+
       - name: Sync files to S3
         run: aws s3 sync . s3://smartbhujal.com/ --delete --exclude ".git/*" --exclude ".github/*"
 
