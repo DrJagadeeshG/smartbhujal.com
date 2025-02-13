@@ -1,8 +1,10 @@
-// Supabase Authentication Setup
-document.addEventListener("DOMContentLoaded", async function () {
+// Wait for the document to fully load before executing the script
+document.addEventListener("DOMContentLoaded", function () {
+    // Define Supabase constants
     const SUPABASE_URL = "{{ SUPABASE_URL }}";
     const SUPABASE_ANON_KEY = "{{ SUPABASE_ANON_KEY }}";
 
+    // Ensure Supabase credentials exist
     if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
         console.error("🚨 Supabase credentials are missing!");
         return;
@@ -10,37 +12,35 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Initialize Supabase Client
     const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log("✅ Supabase Initialized");
 
-    // Function to Open Login when "Search" Button is Clicked
-    window.openLogin = function () {
-        const authContainer = document.getElementById("auth-container");
-        if (authContainer.style.display === "none" || authContainer.style.display === "") {
-            authContainer.style.display = "block"; // Show login
+    // Function to Open Supabase Auth Window
+    window.openSupabaseAuth = async function () {
+        console.log("🔄 Opening Supabase Auth...");
+
+        try {
+            const { data, error } = await supabase.auth.signInWithOAuth({
+                provider: "google", // Use "github" for GitHub login
+                options: {
+                    redirectTo: "https://www.smartbhujal.com/gwflowai.html"
+                }
+            });
+
+            if (error) {
+                console.error("🚨 Authentication Error:", error.message);
+            } else {
+                console.log("✅ Supabase Auth Window Opened");
+            }
+        } catch (err) {
+            console.error("🚨 Unexpected Error:", err);
         }
     };
 
-    // Render the authentication UI inside #auth-container
-    const { Auth } = supabase.auth;
-
-    Auth.mount("#auth-container", {
-        appearance: {
-            theme: "dark",
-            variables: {
-                primaryButtonBackground: "#2563eb",
-                primaryButtonText: "#ffffff",
-                inputBackground: "#f3f4f6",
-                inputBorder: "#d1d5db",
-                inputText: "#374151",
-            }
-        },
-        providers: ["google", "github"], // Enable Google & GitHub login
-        redirectTo: "https://www.smartbhujal.com/gwflowai.html"
-    });
-
-    // Handle Login Event
+    // Handle Authentication State Change
     supabase.auth.onAuthStateChange((event, session) => {
         if (event === "SIGNED_IN") {
-            document.getElementById("auth-container").innerHTML = `<h2>Welcome, ${session.user.email}!</h2>`;
+            console.log("✅ User Logged In:", session.user.email);
+            document.getElementById("search-button").innerText = `Welcome, ${session.user.email}`;
         }
     });
 });
