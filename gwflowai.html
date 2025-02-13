@@ -85,11 +85,16 @@
             <span class="jump-animation"><strong><em>Enter your location coordinates to get started.</em></strong></span>
             </p>
             
-            <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+            <!-- Search Form -->
+            <form action="#" class="form-search d-flex align-items-stretch mb-3" onsubmit="event.preventDefault(); openLogin();" data-aos="fade-up" data-aos-delay="200">
               <input type="text" class="form-control" placeholder="19.0732, 72.8722">
               <button type="submit" class="btn btn-primary">Search</button>
             </form>
 
+            <!-- Auth Container (Placed Outside Form) -->
+            <div id="auth-container" style="display: none; text-align: center; margin-top: 20px;"></div>
+
+      
             <div class="cta-container">
               <button class="cta" id="talkToUsBtn">
               <span class="ctabutton-content">Join our waitlist!</span>
@@ -220,6 +225,11 @@
   <!-- Main JS File -->
   <script src="assets1/js/main.js"></script>
   <script src="assets/js/Smartbhujal.js"></script>
+  <!-- Load Supabase Auth JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/auth-ui@2"></script>
+  <script src="auth.js"></script> <!-- Your separate JavaScript file -->
+
   </body>
 
 </html>
