@@ -85,7 +85,7 @@
             <span class="jump-animation"><strong><em>Enter your location coordinates to get started.</em></strong></span>
             </p>
             
-            <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+            <form class="form-search d-flex align-items-stretch mb-3" onsubmit="event.preventDefault(); openSupabaseAuth();">
               <input type="text" class="form-control" placeholder="19.0732, 72.8722">
               <button type="submit" class="btn btn-primary">Search</button>
             </form>
@@ -216,6 +216,10 @@
   <script src="assets1/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets1/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets1/vendor/swiper/swiper-bundle.min.js"></script>
+  <!-- Load Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth.js"></script>
+
 
   <!-- Main JS File -->
   <script src="assets1/js/main.js"></script>
