@@ -37,6 +37,20 @@
   ======================================================== -->
 </head>
 
+<!-- Load Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // Fetch Supabase credentials from GitHub Secrets (Injected as Environment Variables)
+  const SUPABASE_URL = "{{ SUPABASE_URL }}";
+  const SUPABASE_ANON_KEY = "{{ SUPABASE_ANON_KEY }}";
+
+  // Initialize Supabase
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  console.log("Supabase Connected:", SUPABASE_URL);
+</script>
+
+
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
