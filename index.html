@@ -69,7 +69,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Home<br></a></li>
-          <li><a href="#about1">GWFlowAI</a></li>
+            <li><a href="gwflowai.html">GWFlowAI</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#call-to-action1">Become SB's geologist</a></li>
@@ -210,11 +210,22 @@
           <img src="assets/img/GWFlowAI.jpg" class="img-fluid" alt="" style="max-width: 100%; height: 100%;">
           </div>
           <div class="col-lg-6 order-2 order-lg-2 content">
-            <h3>GWFlowAI <button class="button" onclick="window.location.href='zeronrwai.html';">
-              <span class="button-span" style="font-size: 0.8em;"> Try it for Free</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(45deg);">
-              <path d="M2 8L8 2M8 2L14 8M8 2V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <h3>GWFlowAI 
+              <button class="button" onclick="window.location.href='gwflowai.html';">
+              <span class="button-span" style="font-size: 0.8em;">Try</span> 
+            </h3>
+            <style>
+              @keyframes jump {
+              0% { transform: translateY(0); }
+              25% { transform: translateY(-10px); }
+              50% { transform: translateY(0); }
+              100% { transform: translateY(0); }
+              }
+              .button {
+              animation: jump 1s linear infinite;
+              }
+            </style>
+            
             </button></h3>
           <p class="fst-italic">
               GWFlowAI allows remote groundwater level estimation without a pumping test, aiding real-estate builders, house buyers, and commercial spaces.
@@ -342,9 +353,9 @@
               <div class="mt-auto">
                 <br>
                 <div class="d-flex justify-content-center">
-                    <button class="ctabutton" id="talkToUsBtn">
+                  <button class="ctabutton" id="talkToUsBtn" onclick="window.location.href='gwflowai.html';">
                     <span class="ctabutton-content">Try it now</span>
-                    </button>
+                  </button>
                 </div>
               </div>
             </div>
