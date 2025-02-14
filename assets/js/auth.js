@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Define Supabase constants
-    const SUPABASE_URL = "https://YOUR_PROJECT_ID.supabase.co";
-    const SUPABASE_ANON_KEY = "YOUR_ANON_KEY";
+    const SUPABASE_URL = "https://auzqfsljjbcvlhbgtivm.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
 
     // Initialize Supabase Client
     window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
