@@ -21,8 +21,8 @@ jobs:
 
       - name: Replace Supabase Secrets in auth.js
         run: |
-          sed -i 's|{{ SUPABASE_URL }}|${{ secrets.SUPABASE_URL }}|g' assets/js/auth.js
-          sed -i 's|{{ SUPABASE_ANON_KEY }}|${{ secrets.SUPABASE_ANON_KEY }}|g' assets/js/auth.js
+          sed -i 's|{{ SUPABASE_URL }}|${{ secrets.SUPABASE_URL }}|g' auth.js
+          sed -i 's|{{ SUPABASE_ANON_KEY }}|${{ secrets.SUPABASE_ANON_KEY }}|g' auth.js
 
 
       - name: Sync files to S3
